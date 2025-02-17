@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 15:01:07 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/12 19:10:10 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/17 20:12:51 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,9 @@ int main()
 
 	str = read_map();
 
-	free_arr (str);
+
+	// print_arr(str);
+	pars_square(str);
+	// free_arr (str);
 	return (0);
 }
