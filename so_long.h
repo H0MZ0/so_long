@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:40 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/14 17:50:34 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/27 11:44:08 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ struct	t_pos
 	int	y;
 };
 
+#define RED "\033[1;31m"
+#define RESET "\033[0m"
+
 # include <unistd.h>
 # include <stdio.h>
 # include <stddef.h>
@@ -27,6 +30,10 @@ struct	t_pos
 # include <math.h>
 # include "GNL/get_next_line.h"
 
+
+char	**read_map(void);
+void	print_arr(char **str);
+void	free_arr(char **str);
 void	pars_square(char **str);
 
 #endif
