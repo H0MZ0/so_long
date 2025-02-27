@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:21:31 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/27 15:20:41 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/27 15:53:01 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,36 @@ void	check_rl_walls(char **map)
 	}
 }
 
+void	count_things(char **map)
+{
+	int	P;
+	int	E;
+	int	C;
+	int	x;
+	int	y;
+
+	P = 0;
+	E = 0;
+	C = 0;
+	y = 0;
+	while (map[y])
+	{
+		x = 0;
+		while (map[y][x])
+		{
+			if (map[y][x] == 'P')
+				P += 1;
+			if (map[y][x] == 'E')
+				E += 1;
+			if (map[y][x] == 'C')
+				x += C;
+		}
+		y++;
+	}
+	if (C < 1 || P != 1 || E != 1)
+		
+}
+
 void	map_filter(char *map)
 {
 	char **rd_map;
@@ -98,9 +128,10 @@ void	map_filter(char *map)
 	rd_map = read_map(map);
 
 	// free_arr(rd_map);
-	pars_square(rd_map);
-	check_fl_walls(rd_map);
-	check_rl_walls(rd_map);
+	print_arr(rd_map);
+	// pars_square(rd_map);
+	// check_fl_walls(rd_map);
+	// check_rl_walls(rd_map);
 }
 
 // void	check_name(char *str)
