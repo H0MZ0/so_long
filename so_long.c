@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:21:31 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/27 14:43:52 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/27 14:52:23 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,16 @@ void	map_filter(char *map)
 	check_rl_walls(rd_map);
 }
 
+// void	check_name(char *str)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	if (!str)
+// 		return ;
+// 	while ()
+// }
+
 int main(int ac, char **av)
 {
 	if (ac != 2)
@@ -110,8 +120,11 @@ int main(int ac, char **av)
 		write(2, RED"Error: <program> <map>\n"RESET, 30);
 		exit (1);
 	}
-	
-	map_filter(av[1]);
+	int len = strlen(av[1]);
+	int cmp = strcmp(".ber", &av[1][len - 4]);
+	printf("%d\n", cmp);
+	// printf("%s", &av[1][len - 4]);
+	// map_filter(av[1]);
 	// printf("%s", av[2]);
 	// write (1, "a", 1);
 }
