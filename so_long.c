@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:21:31 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/27 12:21:12 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/27 12:40:38 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	fl_walls(char *wall)
 	}
 }
 
+
 void	check_fl_walls(char **map)
 {
 	int	y;
@@ -68,9 +69,26 @@ void	check_fl_walls(char **map)
 		y++;
 	fl_walls(map[y]);
 }
+
 void	check_rl_walls(char **map)
 {
-	
+	int	x;
+	int	y;
+
+	x = 0;
+	y = 0;
+	while (map[y][x])
+		x++;
+	x -= 2;
+	while (map[y])
+	{
+		if (map[y][0] != '1' || map[y][x] != '1')
+		{
+			printf("Error\n");
+			exit (1);
+		}
+		y++;
+	}
 }
 
 void	map_filter(char *map)
@@ -80,7 +98,7 @@ void	map_filter(char *map)
 	rd_map = read_map(map);
 	pars_square(rd_map);
 	check_fl_walls(rd_map);
-
+	check_rl_walls(rd_map);
 }
 
 int main(int ac, char **av)
