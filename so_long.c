@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:21:31 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/27 15:53:01 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/27 17:53:48 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,8 @@ void	count_things(char **map)
 	E = 0;
 	C = 0;
 	y = 0;
+	(void)map;
+	// printf("hola");
 	while (map[y])
 	{
 		x = 0;
@@ -113,12 +115,35 @@ void	count_things(char **map)
 			if (map[y][x] == 'E')
 				E += 1;
 			if (map[y][x] == 'C')
-				x += C;
+				C += 1;
+			x++;
 		}
 		y++;
 	}
 	if (C < 1 || P != 1 || E != 1)
-		
+	{
+		printf("more than what you need");
+		exit (1);
+	}
+}
+
+void	check_others(char **map)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (map[y])
+	{
+		x = 0;
+		while (map[y][x])
+		{
+			if (!(map[y][x] == 'C' || map[y][x] == 'E' || map[y][x] == 'P' || map[y][x] == '0' || map[y][x] == '1' || map[y][x] == '\0' || map[y][x] == '\n'))
+				printf("Error\nInvalid character in map"), exit (0);
+			x++;
+		}
+		y++;
+	}
 }
 
 void	map_filter(char *map)
@@ -128,10 +153,12 @@ void	map_filter(char *map)
 	rd_map = read_map(map);
 
 	// free_arr(rd_map);
-	print_arr(rd_map);
-	// pars_square(rd_map);
-	// check_fl_walls(rd_map);
-	// check_rl_walls(rd_map);
+	// print_arr(rd_map);
+	pars_square(rd_map);
+	check_fl_walls(rd_map);
+	check_rl_walls(rd_map);
+	check_others(rd_map);
+	count_things(rd_map);
 }
 
 // void	check_name(char *str)
