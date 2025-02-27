@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:21:31 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/27 14:52:23 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/27 15:20:41 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,11 +120,15 @@ int main(int ac, char **av)
 		write(2, RED"Error: <program> <map>\n"RESET, 30);
 		exit (1);
 	}
-	int len = strlen(av[1]);
-	int cmp = strcmp(".ber", &av[1][len - 4]);
-	printf("%d\n", cmp);
+	// int len = ft_strlen(av[1]);
+	// if (av[1][0] == '.')
+	// 	exit(1);
+
+	if (!(ft_strcmp(".ber", &av[1][ft_strlen(av[1]) - 4]) == 0 && ft_strlen(av[1]) > 4))
+		write(2, RED"Error: Invalid map\n"RESET, 26), exit (1);
+	// printf("salam\n");
 	// printf("%s", &av[1][len - 4]);
-	// map_filter(av[1]);
+	map_filter(av[1]);
 	// printf("%s", av[2]);
 	// write (1, "a", 1);
 }

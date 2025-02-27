@@ -1,7 +1,7 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror 
 
-SRC = so_long.c map_parsing.c GNL/get_next_line.c GNL/get_next_line_utils.c
+SRC = so_long.c map_parsing.c GNL/get_next_line.c GNL/get_next_line_utils.c ft_helpers.c
 
 OBJ = $(SRC:.c=.o)
 

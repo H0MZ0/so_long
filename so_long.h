@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:40 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/27 11:55:43 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/27 14:58:09 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,8 @@ char	**read_map(char *map);
 void	print_arr(char **str);
 void	free_arr(char **str);
 void	pars_square(char **str);
+
+
+int	ft_strcmp(const char *s1, const char *s2);
 
 #endif
