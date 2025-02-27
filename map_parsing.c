@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 15:01:07 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/27 10:32:20 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/27 11:57:59 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ void	print_arr(char **str)
 	}
 }
 
-char	**read_map(void)
+char	**read_map(char *map)
 {
 	int	fd;
 	int	i;
 	char **str;
 
-	fd = open("maps/map.ber", O_RDONLY);
+	fd = open(map, O_RDONLY);
 	if (fd == -1)
 	{
 		printf("failed to open map");
@@ -62,16 +62,3 @@ char	**read_map(void)
 	close(fd);
 	return (str);
 }
-
-// int main()
-// {
-// 	char **str;
-
-// 	str = read_map();
-
-
-// 	print_arr(str);
-// 	// pars_square(str);
-// 	// free_arr (str);
-// 	return (0);
-// }

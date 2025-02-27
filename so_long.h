@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:40 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/27 11:44:08 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/27 11:55:43 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ struct	t_pos
 # include "GNL/get_next_line.h"
 
 
-char	**read_map(void);
+char	**read_map(char *map);
 void	print_arr(char **str);
 void	free_arr(char **str);
 void	pars_square(char **str);

@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:21:31 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/27 11:50:10 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/27 12:21:12 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,49 @@ void	pars_square(char **rd_map)
 	}
 }
 
-void	map_filter(void)
+void	fl_walls(char *wall)
+{
+	int	x;
+
+	x = 0;
+	if (!wall)
+		return ;
+	while (wall[x])
+	{
+		if (wall[x] == '\0' || wall[x] == '\n')
+			break;
+		if (wall[x] != '1')
+		{
+			printf("Error\n");
+			exit (1);
+		}
+		x++;
+	}
+}
+
+void	check_fl_walls(char **map)
+{
+	int	y;
+
+	y = 0;
+	fl_walls(map[0]);
+	while(map[y + 1])
+		y++;
+	fl_walls(map[y]);
+}
+void	check_rl_walls(char **map)
+{
+	
+}
+
+void	map_filter(char *map)
 {
 	char **rd_map;
 
-	rd_map = read_map();
-	// print_arr(rd_map);
+	rd_map = read_map(map);
 	pars_square(rd_map);
+	check_fl_walls(rd_map);
+
 }
 
 int main(int ac, char **av)
@@ -55,7 +91,8 @@ int main(int ac, char **av)
 		exit (1);
 	}
 	(void)av;
-	map_filter();
+	// printf("%s", av[1]);
+	map_filter(av[1]);
 	// write (1, "a", 1);
 }
 
