@@ -6,18 +6,13 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:40 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/27 14:58:09 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/28 20:11:17 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-struct	t_pos
-{
-	int	x;
-	int	y;
-};
 
 #define RED "\033[1;31m"
 #define RESET "\033[0m"
@@ -29,6 +24,14 @@ struct	t_pos
 # include <fcntl.h>
 # include <math.h>
 # include "GNL/get_next_line.h"
+# include "Printf/ft_printf.h"
+
+
+typedef struct s_point
+{
+	int	x;
+	int	y;
+}	t_point;
 
 
 char	**read_map(char *map);

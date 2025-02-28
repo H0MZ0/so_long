@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_helpers.c                                       :+:      :+:    :+:   */
+/*   flood_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 14:53:28 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/27 18:36:58 by hakader          ###   ########.fr       */
+/*   Created: 2025/02/27 18:30:48 by hakader           #+#    #+#             */
+/*   Updated: 2025/02/27 18:38:01 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+void    floid(char **tab, t_point size, t_point begin, char *str)
 {
-	size_t			i;
+	if (begin.x < 0 || begin.y < 0 || begin.x >= size.x 
+		|| begin.y >= size.y || str != tab[begin.y][begin.x])
+		return ;
+	floid()
+}
 
-	i = 0;
-	while ((s1[i] || s2[i]))
-	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
-	}
-	return (0);
+void    flood_fill(char **tab, t_point size, t_point begin)
+{
+	floid(tab, size, begin, tab[begin.y][begin.x]);
 }
