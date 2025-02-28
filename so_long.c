@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:21:31 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/27 18:28:14 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/28 20:13:20 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,8 +152,6 @@ void	map_filter(char *map)
 
 	rd_map = read_map(map);
 
-	// free_arr(rd_map);
-	// print_arr(rd_map);
 	pars_square(rd_map);
 	check_fl_walls(rd_map);
 	check_rl_walls(rd_map);
