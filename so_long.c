@@ -6,13 +6,15 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:21:31 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/01 16:15:35 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/01 16:26:17 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	pars_square(t_map	game)
+t_map	game;
+
+void	pars_square(void)
 {
 	int	check;
 
@@ -33,7 +35,7 @@ void	pars_square(t_map	game)
 	}
 }
 
-void	fl_walls(t_map game, int y)
+void	fl_walls(int y)
 {
 	int	x;
 
@@ -51,18 +53,18 @@ void	fl_walls(t_map game, int y)
 }
 
 
-void	check_fl_walls(t_map game)
+void	check_fl_walls(void)
 {
 	int	y;
 
 	y = 0;
-	fl_walls(game, 0);
+	fl_walls(0);
 	while(game.map[y + 1])
 		y++;
-	fl_walls(game, y);
+	fl_walls(y);
 }
 
-void	check_rl_walls(t_map game)
+void	check_rl_walls(void)
 {
 	int	x;
 	int	y;
@@ -80,7 +82,7 @@ void	check_rl_walls(t_map game)
 	}
 }
 
-void	count_things(t_map game)
+void	count_things(void)
 {
 	
 	int	x;
@@ -113,7 +115,7 @@ void	count_things(t_map game)
 		put_err("Error:\ncheck your map\n");
 }
 
-void	check_others(t_map game)
+void	check_others(void)
 {
 	int	x;
 	int	y;
@@ -134,22 +136,22 @@ void	check_others(t_map game)
 
 void	map_filter(char *map)
 {
-	t_map	game;
 
 	game.map = read_map(map);
-	pars_square(game);
-	(void)map;
-	check_fl_walls(game);
-	check_rl_walls(game);
-	check_others(game);
-	count_things(game);
+	pars_square();
+	// (void)map;
+	check_fl_walls();
+	check_rl_walls();
+	check_others();
+	count_things();
 }
 
 int main(int ac, char **av)
 {
 	if (ac != 2)
 		put_err("Error:\n<program> <map>\n");
-	if (!(ft_strcmp(".ber", &av[1][ft_strlen(av[1]) - 4]) == 0 && ft_strlen(av[1]) > 4))
+	if (!(ft_strcmp(".ber", &av[1][ft_strlen(av[1]) - 4]) == 0
+		&& ft_strlen(av[1]) > 4))
 		put_err("Error:\nInvalid map\n");
 	map_filter(av[1]);
 }
