@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:40 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/28 20:11:17 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/01 14:53:38 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 # include <fcntl.h>
 # include <math.h>
 # include "GNL/get_next_line.h"
-# include "Printf/ft_printf.h"
 
 
 typedef struct s_point
