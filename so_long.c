@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:21:31 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/01 18:56:54 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/01 22:08:15 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ void	pars_square(t_map	game)
 	check = 0;
 	if (!game.map)
 		return ;
-	while (game.map[0][check])
+	while (game.map[0][check] && game.map[0][check] != '\n')
 		check++;
 	while (game.map[game.y])
 	{
 		game.x = 0;
-		while (game.map[game.y][game.x])
+		while (game.map[game.y][game.x]&& game.map[game.y][game.x] != '\n')
 			game.x++;
 		if (check != game.x)
 			put_err("Error: Invalid map\n");
@@ -96,6 +96,7 @@ void	map_filter(char *map)
 	t_map	game;
 
 	game.map = read_map(map);
+	// print_arr(game.map);
 	game.copy = game.map;
 	pars_square(game);
 	check_fl_walls(game);
