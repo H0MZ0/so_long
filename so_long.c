@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:21:31 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/01 22:08:15 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/01 22:37:35 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	pars_square(t_map	game)
 		while (game.map[game.y][game.x]&& game.map[game.y][game.x] != '\n')
 			game.x++;
 		if (check != game.x)
-			put_err("Error: Invalid map\n");
+			put_err("Error:\nInvalid map\n");
 		game.y++;
 	}
 }
