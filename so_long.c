@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:21:31 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/01 14:53:51 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/01 15:21:13 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,7 @@ void	pars_square(char **rd_map)
 		while (rd_map[y][x])
 			x++;
 		if (check != x)
-		{
-			write(2, RED"Error: Invalid map\n"RESET, 26);
-			exit (1);
-		}
+			put_err("Error: Invalid map\n");
 		y++;
 	}
 }
@@ -50,10 +47,7 @@ void	fl_walls(char *wall)
 		if (wall[x] == '\0' || wall[x] == '\n')
 			break;
 		if (wall[x] != '1')
-		{
-			printf("Error\n");
-			exit (1);
-		}
+			put_err("Error:\nCheck your walls\n");
 		x++;
 	}
 }
@@ -83,10 +77,7 @@ void	check_rl_walls(char **map)
 	while (map[y])
 	{
 		if (map[y][0] != '1' || map[y][x] != '1')
-		{
-			printf("Error\n");
-			exit (1);
-		}
+			put_err("Error:\nCheck your walls\n");
 		y++;
 	}
 }
@@ -104,7 +95,6 @@ void	count_things(char **map)
 	C = 0;
 	y = 0;
 	(void)map;
-	// printf("hola");
 	while (map[y])
 	{
 		x = 0;
@@ -121,10 +111,7 @@ void	count_things(char **map)
 		y++;
 	}
 	if (C < 1 || P != 1 || E != 1)
-	{
-		printf("Error:\ncheck your map\n");
-		exit (1);
-	}
+		put_err("Error:\ncheck your map\n");
 }
 
 void	check_others(char **map)
@@ -139,7 +126,7 @@ void	check_others(char **map)
 		while (map[y][x])
 		{
 			if (!(map[y][x] == 'C' || map[y][x] == 'E' || map[y][x] == 'P' || map[y][x] == '0' || map[y][x] == '1' || map[y][x] == '\0' || map[y][x] == '\n'))
-				printf("Error\nInvalid character in map"), exit (0);
+				put_err("Error:\nInvalid character in map\n");
 			x++;
 		}
 		y++;
@@ -162,12 +149,8 @@ void	map_filter(char *map)
 int main(int ac, char **av)
 {
 	if (ac != 2)
-	{
-		write(2, RED"Error: <program> <map>\n"RESET, 30);
-		exit (1);
-	}
-
+		put_err("Error:\n<program> <map>\n");
 	if (!(ft_strcmp(".ber", &av[1][ft_strlen(av[1]) - 4]) == 0 && ft_strlen(av[1]) > 4))
-		write(2, RED"Error: Invalid map\n"RESET, 26), exit (1);
+		put_err("Error:\nInvalid map\n");
 	map_filter(av[1]);
 }
