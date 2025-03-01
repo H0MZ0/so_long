@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:58:08 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/01 15:20:29 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/01 19:02:12 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	put_err(char *str)
 {
-	ft_putstr(str, 2);  
-	exit(1);
+	ft_putstr(str, 2);
+	exit (1);
 }

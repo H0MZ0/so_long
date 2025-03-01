@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:53:28 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/01 18:29:42 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/01 19:03:45 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	ft_strcmp(const char *s1, const char *s2)
 	}
 	return (0);
 }
+
 void	ft_putstr(char *str, int fd)
 {
 	int	i;
