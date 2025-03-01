@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:40 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/01 16:23:14 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/01 18:44:19 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_map
 	int E;
 	int C;
 	int row;
-	int colomn;
+	int column;
 	char	**map;
 	char	**copy;
 }	t_map;

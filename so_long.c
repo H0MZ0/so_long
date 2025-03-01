@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:21:31 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/01 17:10:12 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/01 18:45:20 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	pars_square(void)
 			put_err("Error: Invalid map\n");
 		game.y++;
 	}
+	printf("%d", game.x);
+	printf("%d", game.y);
 }
 
 void	fl_walls(int y)
