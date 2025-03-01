@@ -6,77 +6,75 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:21:31 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/01 15:21:13 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/01 16:14:19 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	pars_square(char **rd_map)
+void	pars_square(t_map	game)
 {
-	int	x;
-	int	y;
 	int	check;
 
-	y = 0;
+	game.y = 0;
 	check = 0;
-	if (!rd_map)
+	if (!game.map)
 		return ;
-	while (rd_map[0][check])
+	while (game.map[0][check])
 		check++;
-	while (rd_map[y])
+	while (game.map[game.y])
 	{
-		x = 0;
-		while (rd_map[y][x])
-			x++;
-		if (check != x)
+		game.x = 0;
+		while (game.map[game.y][game.x])
+			game.x++;
+		if (check != game.x)
 			put_err("Error: Invalid map\n");
-		y++;
+		game.y++;
 	}
 }
 
-void	fl_walls(char *wall)
+void	fl_walls(t_map game, int y)
 {
 	int	x;
 
 	x = 0;
-	if (!wall)
+	if (!game.map[y])
 		return ;
-	while (wall[x])
+	while (game.map[y][x])
 	{
-		if (wall[x] == '\0' || wall[x] == '\n')
+		if (game.map[y][x] == '\0' || game.map[y][x] == '\n')
 			break;
-		if (wall[x] != '1')
+		if (game.map[y][x] != '1')
 			put_err("Error:\nCheck your walls\n");
 		x++;
 	}
 }
 
 
-void	check_fl_walls(char **map)
+void	check_fl_walls(t_map game)
 {
 	int	y;
 
 	y = 0;
-	fl_walls(map[0]);
-	while(map[y + 1])
+	fl_walls(game, 0);
+	while(game.map[y + 1])
 		y++;
-	fl_walls(map[y]);
+	fl_walls(game, y);
 }
 
-void	check_rl_walls(char **map)
+void	check_rl_walls(t_map game)
 {
 	int	x;
 	int	y;
 
 	x = 0;
 	y = 0;
-	while (map[y][x])
+	while (game.map[y][x])
 		x++;
 	x -= 2;
-	while (map[y])
+	while (game.map[y])
 	{
-		if (map[y][0] != '1' || map[y][x] != '1')
+		if (game.map[y][0] != '1' || game.map[y][x] != '1')
 			put_err("Error:\nCheck your walls\n");
 		y++;
 	}
@@ -84,11 +82,12 @@ void	check_rl_walls(char **map)
 
 void	count_things(char **map)
 {
-	int	P;
-	int	E;
-	int	C;
+	
 	int	x;
 	int	y;
+	int	P;
+	int	E;
+	int C;
 
 	P = 0;
 	E = 0;
@@ -114,18 +113,18 @@ void	count_things(char **map)
 		put_err("Error:\ncheck your map\n");
 }
 
-void	check_others(char **map)
+void	check_others(t_map game)
 {
 	int	x;
 	int	y;
 
 	y = 0;
-	while (map[y])
+	while (game.map[y])
 	{
 		x = 0;
-		while (map[y][x])
+		while (game.map[y][x])
 		{
-			if (!(map[y][x] == 'C' || map[y][x] == 'E' || map[y][x] == 'P' || map[y][x] == '0' || map[y][x] == '1' || map[y][x] == '\0' || map[y][x] == '\n'))
+			if (!(game.map[y][x] == 'C' || game.map[y][x] == 'E' || game.map[y][x] == 'P' || game.map[y][x] == '0' || game.map[y][x] == '1' || game.map[y][x] == '\0' || game.map[y][x] == '\n'))
 				put_err("Error:\nInvalid character in map\n");
 			x++;
 		}
@@ -135,15 +134,15 @@ void	check_others(char **map)
 
 void	map_filter(char *map)
 {
-	char **rd_map;
+	t_map	game;
 
-	rd_map = read_map(map);
-
-	pars_square(rd_map);
-	check_fl_walls(rd_map);
-	check_rl_walls(rd_map);
-	check_others(rd_map);
-	count_things(rd_map);
+	game.map = read_map(map);
+	pars_square(game);
+	(void)map;
+	check_fl_walls(game);
+	check_rl_walls(game);
+	check_others(game);
+	// count_things(rd_map);
 }
 
 int main(int ac, char **av)

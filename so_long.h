@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:40 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/01 15:26:57 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/01 15:53:08 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,24 @@
 # include <math.h>
 # include "GNL/get_next_line.h"
 
-// typedef s_map
-// {
-// 	int x;
-// 	int y;
-// 	int row;
-// 	int colomn;
-// 	char	**map;
-// 	char	**copy;
-// }	s_map;
+typedef struct s_map
+{
+	int x;
+	int y;
+	int P;
+	int E;
+	int C;
+	int row;
+	int colomn;
+	char	**map;
+	char	**copy;
+}	t_map;
 
 
 char	**read_map(char *map);
 void	print_arr(char **str);
 void	free_arr(char **str);
-void	pars_square(char **str);
+void	pars_square(t_map	game);
 
 
 int	ft_strcmp(const char *s1, const char *s2);
