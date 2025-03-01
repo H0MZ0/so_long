@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:21:31 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/01 16:14:19 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/01 16:15:35 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	check_rl_walls(t_map game)
 	}
 }
 
-void	count_things(char **map)
+void	count_things(t_map game)
 {
 	
 	int	x;
@@ -93,17 +93,17 @@ void	count_things(char **map)
 	E = 0;
 	C = 0;
 	y = 0;
-	(void)map;
-	while (map[y])
+	// (void)map;
+	while (game.map[y])
 	{
 		x = 0;
-		while (map[y][x])
+		while (game.map[y][x])
 		{
-			if (map[y][x] == 'P')
+			if (game.map[y][x] == 'P')
 				P += 1;
-			if (map[y][x] == 'E')
+			if (game.map[y][x] == 'E')
 				E += 1;
-			if (map[y][x] == 'C')
+			if (game.map[y][x] == 'C')
 				C += 1;
 			x++;
 		}
@@ -142,7 +142,7 @@ void	map_filter(char *map)
 	check_fl_walls(game);
 	check_rl_walls(game);
 	check_others(game);
-	// count_things(rd_map);
+	count_things(game);
 }
 
 int main(int ac, char **av)
