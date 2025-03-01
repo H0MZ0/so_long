@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:21:31 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/01 16:26:17 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/01 17:10:12 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,10 @@ void	check_others(void)
 		x = 0;
 		while (game.map[y][x])
 		{
-			if (!(game.map[y][x] == 'C' || game.map[y][x] == 'E' || game.map[y][x] == 'P' || game.map[y][x] == '0' || game.map[y][x] == '1' || game.map[y][x] == '\0' || game.map[y][x] == '\n'))
+			if (!(game.map[y][x] == 'C' || game.map[y][x] == 'E'
+				|| game.map[y][x] == 'P' || game.map[y][x] == '0'
+					|| game.map[y][x] == '1' || game.map[y][x] == '\0'
+						|| game.map[y][x] == '\n'))
 				put_err("Error:\nInvalid character in map\n");
 			x++;
 		}
@@ -139,7 +142,6 @@ void	map_filter(char *map)
 
 	game.map = read_map(map);
 	pars_square();
-	// (void)map;
 	check_fl_walls();
 	check_rl_walls();
 	check_others();
