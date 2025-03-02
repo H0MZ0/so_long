@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:21:31 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/02 21:57:26 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/02 22:13:03 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,8 @@ void map_filter(char *map)
 	check_rl_walls(&game);
 	check_others(&game);
 	count_things(&game);
-	printf("E = %d ;P = %d  ; C = %d", game.E, game.P, game.C);
+	// printf("E = %d ;P = %d  ; C = %d", game.E, game.P, game.C);
+	// printf("%d  %d", game.column, game.row);
 }
 
 int main(int ac, char **av)

@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 18:54:35 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/02 21:51:24 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/02 22:12:44 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void fl_walls(t_map *game, int y)
             put_err("Error:\nCheck your walls\n");
         x++;
     }
+	game->column = x;
 }
 
 void check_fl_walls(t_map *game)
@@ -46,4 +47,5 @@ void check_rl_walls(t_map *game)
             put_err("Error:\nCheck your walls\n");
         y++;
     }
+	game->row = y;
 }
