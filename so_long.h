@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:40 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/01 18:59:53 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/01 23:24:34 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 #define RED "\033[1;31m"
 #define RESET "\033[0m"
+#define ESC_KEY 65307
 
 # include <unistd.h>
 # include <stdio.h>
