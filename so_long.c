@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:21:31 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/02 23:06:22 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/02 23:10:04 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,46 +75,47 @@ void check_others(t_map *game)
 	}
 }
 
-// size_t	ft_strcpy(char *dst, const char *src)
-// {
-// 	size_t	i;
+size_t	ft_strcpy(char *dst, const char *src)
+{
+	size_t	i;
 
-// 	i = 0;
-// 	// dst = NULL;
-// 	while (src[i])
-// 	{
-// 		dst[i] = src[i];
-// 		i++;
-// 	}
-// 	dst[i] = '\0';
-// 	return (ft_strlen(src));
-// }
+	i = 0;
+	// dst = NULL;
+	while (src[i])
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (ft_strlen(src));
+}
 
-// void	copy_map(t_map *game)
-// {
+void	copy_map(t_map *game)
+{
 	
-// 	int	i;
+	int	i;
 
-// 	i = 0;
-// 	game->copy = malloc(sizeof(char) * game->column);
-// 	while (i < game->column)
-// 	{
-// 		game->copy[i] = malloc((sizeof(char *) * game->row));
-// 		ft_strcpy(game->copy[i], game->map[i]);
-// 		i++;
-// 	}
-// }
+	i = 0;
+	game->copy = malloc(sizeof(char) * game->column);
+	while (i < game->column)
+	{
+		game->copy[i] = malloc((sizeof(char *) * game->row));
+		ft_strcpy(game->copy[i], game->map[i]);
+		i++;
+	}
+}
 
 void	map_filter(char *map)
 {
 	t_map game;
 	game.map = read_map(map);
+	copy_map(&game);
 	pars_square(&game);
 	check_fl_walls(&game);
 	check_rl_walls(&game);
 	check_others(&game);
 	count_things(&game);
-	// print_arr(game.copy);
+	print_arr(game.copy);
 	// printf("E = %d ;P = %d  ; C = %d", game.E, game.P, game.C);
 	// printf("%d  %d", game.column, game.row);
 }
