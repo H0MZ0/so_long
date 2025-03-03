@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:40 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/02 21:52:35 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/02 23:31:54 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	free_arr(char **str);
 void	check_rl_walls(t_map	*game);
 void	check_fl_walls(t_map	*game);
 void	fl_walls(t_map	*game, int y);
+void	flood_fill(char **tab, t_map size, t_map begin);
 
 int	ft_strcmp(const char *s1, const char *s2);
 void	ft_putstr(char *str, int fd);
