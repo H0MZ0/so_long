@@ -6,11 +6,10 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 00:42:45 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/03 00:43:27 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/03 00:48:23 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
 #include "so_long.h"
 
 int	key_hook(int keyhook, void *param)

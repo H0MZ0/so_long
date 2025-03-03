@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:40 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/03 00:42:12 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/03 00:48:38 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # define RESET "\033[0m"
 # define ESC_KEY 65307
 
+# include <mlx.h>
 # include <unistd.h>
 # include <stdio.h>
 # include <stddef.h>
