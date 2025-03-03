@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 00:42:45 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/03 00:48:23 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/03 19:21:26 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,20 @@
 int	key_hook(int keyhook, void *param)
 {
 	if (keyhook == ESC_KEY)
+	{
+		// mlx_destroy_window(mlx, win);
 		exit (0);
-	return (0);
+	}
 }
 
-int	main(void)
+
+int main()
 {
 	void	*mlx;
 	void	*win;
 
 	mlx = mlx_init();
-	win = mlx_new_window(mlx, 800, 600, "Wahmane");
-	mlx_key_hook(win, key_hook, win);
+	win = mlx_new_window(mlx, 600, 800, "HAMZA");
+	mlx_key_hook(win, key_hook, NULL);
 	mlx_loop(mlx);
 }
