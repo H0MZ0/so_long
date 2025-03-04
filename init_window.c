@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 00:07:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/04 18:03:47 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/04 19:14:33 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int key_hook(int keyhook, t_mlx *mlx)
 	find_player(mlx);
 	if (keyhook == KEY_ESC)
 		exit(0);
-	count_things(mlx);
+	// count_things(mlx);
 	if (keyhook == KEY_W || keyhook == KEY_UP)
 	{
 		if (mlx->game.map[mlx->p_y - 1][mlx->p_x] == '0' || mlx->game.map[mlx->p_y - 1][mlx->p_x] == 'C')
@@ -92,10 +92,10 @@ int key_hook(int keyhook, t_mlx *mlx)
 			mlx->game.map[mlx->p_y][mlx->p_x] = '0'; 
 		}
 	}
-	else if (mlx->game.C == 0)
-	{
-		exit(0);
-	}
+	// else if (mlx->game.C == 0)
+	// {
+	// 	exit(0);
+	// }
 
 	rendre_map(mlx);
 	return (0);
