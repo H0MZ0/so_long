@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:40 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/04 10:58:34 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/04 11:33:22 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,18 @@
 
 # define RED "\033[1;31m"
 # define RESET "\033[0m"
-# define ESC_KEY 65307
-# define X_KEY 17
+# define KEY_ESC 65307
+# define KEY_UP 65362
+# define KEY_DOWN 65364
+# define KEY_RIGHT 65363
+# define KEY_LEFT 65361
+# define KEY_W 119
+# define KEY_D 100
+# define KEY_S 115
+# define KEY_A 97
+# define ESC 65307
+# define ON_DESTROY 17
+
 
 # include "mlx/mlx.h"
 # include <unistd.h>
