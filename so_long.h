@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:40 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/04 16:04:24 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/04 18:01:50 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,6 @@ int		ft_strcmp(const char *s1, const char *s2);
 void	ft_putstr(char *str, int fd);
 void	put_err(char *str);
 void	in_mlx(t_mlx *mlx);
+void	count_things(t_mlx *mlx);
 
 #endif
