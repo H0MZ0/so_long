@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:40 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/04 01:33:19 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/04 10:58:34 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ typedef struct s_mlx
 	t_map	game;
 	t_axis	axis;
 	t_image	tx;
+	int		p_x;
+	int		p_y;
 	void	*mlx;
 	void	*win;
 }	t_mlx;
