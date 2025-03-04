@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:21:31 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/03 19:48:54 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/04 00:07:40 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,6 @@ void	copy_map(t_mlx *mlx)
 
 void	map_filter(char *map)
 {
-	// t_mlx	game;
 	t_mlx	mlx;
 
 	mlx.game.map = read_map(map);
@@ -126,7 +125,9 @@ void	map_filter(char *map)
 	check_others(&mlx);
 	count_things(&mlx);
 	copy_map(&mlx);
+	in_mlx(&mlx);
 }
+
 
 int	main(int ac, char **av)
 {

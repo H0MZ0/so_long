@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:40 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/03 19:32:22 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/04 01:33:19 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # define ESC_KEY 65307
 # define X_KEY 17
 
-# include <mlx.h>
+# include "mlx/mlx.h"
 # include <unistd.h>
 # include <stdio.h>
 # include <stddef.h>
@@ -44,11 +44,21 @@ typedef struct s_map
 	char	**copy;
 }	t_map;
 
+typedef struct s_image
+{
+	void	*coin;
+	void	*floor;
+	void	*player;
+	void	*walk;
+	void	*wall;
+}	t_image;
+
 
 typedef struct s_mlx
 {
 	t_map	game;
 	t_axis	axis;
+	t_image	tx;
 	void	*mlx;
 	void	*win;
 }	t_mlx;
@@ -63,5 +73,6 @@ void	flood_fill(char **tab, t_mlx size, t_mlx begin);
 int		ft_strcmp(const char *s1, const char *s2);
 void	ft_putstr(char *str, int fd);
 void	put_err(char *str);
+void	in_mlx(t_mlx *mlx);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 00:42:45 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/03 19:21:26 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/03 23:30:10 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main()
 	void	*win;
 
 	mlx = mlx_init();
-	win = mlx_new_window(mlx, 600, 800, "HAMZA");
+	win = mlx_new_window(mlx, , , "HAMZA");
 	mlx_key_hook(win, key_hook, NULL);
 	mlx_loop(mlx);
 }
