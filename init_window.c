@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 00:07:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/04 14:28:25 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/04 16:03:32 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,52 +27,74 @@ void find_player(t_mlx *mlx)
 		mlx->p_y++;
 	}
 }
-void	rendre_map(t_mlx *mlx)
+void    rendre_map(t_mlx *mlx)
 {
-	t_axis	ax;
-	ax.y = 0;
+    t_axis    ax;
+    ax.y = 0;
 
-	while (mlx->game.map[ax.y])
-	{
-		ax.x = 0;
-		while (mlx->game.map[ax.y][ax.x] && ax.x < mlx->game.column)
-		{
-			if(mlx->game.map[ax.y][ax.x] == '1')
-				mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->tx.wall, ax.x * 80, ax.y * 80);
-			if (mlx->game.map[ax.y][ax.x] == '0')
-				mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->tx.floor, ax.x * 80, ax.y * 80);
-			if (mlx->game.map[ax.y][ax.x] == 'P')
-				mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->tx.player, ax.x * 80, ax.y * 80);
-				
-			if (mlx->game.map[ax.y][ax.x] == 'E')
-				mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->tx.door, ax.x * 80, ax.y * 80);
-			if (mlx->game.map[ax.y][ax.x] == 'C')
-				mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->tx.coin, ax.x * 80, ax.y * 80);
-			ax.x++;
-		}
-		ax.y++;
-	}
-	
+    while (mlx->game.map[ax.y])
+    {
+        ax.x = 0;
+        while (mlx->game.map[ax.y][ax.x] && ax.x < mlx->game.column)
+        {
+            if(mlx->game.map[ax.y][ax.x] == '1')
+                mlx->tx.character = mlx->tx.wall;
+            else if (mlx->game.map[ax.y][ax.x] == '0')
+                mlx->tx.character = mlx->tx.floor;
+            else if (mlx->game.map[ax.y][ax.x] == 'P')
+                mlx->tx.character = mlx->tx.player;
+            else if (mlx->game.map[ax.y][ax.x] == 'E')
+                mlx->tx.character = mlx->tx.door;
+            else if (mlx->game.map[ax.y][ax.x] == 'C')
+                mlx->tx.character = mlx->tx.coin;
+            mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->tx.character, ax.x * 80, ax.y * 80);
+            ax.x++;
+        }
+        ax.y++;
+    }
+    
 }
 int key_hook(int keyhook, t_mlx *mlx)
 {
-	if (keyhook == KEY_ESC)
-		exit(0);
+    find_player(mlx);
+    if (keyhook == KEY_ESC)
+        exit(0);
 
-	if (keyhook == KEY_W)
-		mlx->p_y--;
-	else if (keyhook == KEY_S)
-		mlx->p_y++;
-	else if (keyhook == KEY_A)
-		mlx->p_x--;
-	else if (keyhook == KEY_D)
-		mlx->p_x++;
+    if (keyhook == KEY_W)
+    {
+        if (mlx->game.map[mlx->p_y - 1][mlx->p_x] == '0' || mlx->game.map[mlx->p_y - 1][mlx->p_x] == 'C')
+        {
+            mlx->game.map[mlx->p_y - 1][mlx->p_x] = 'P';
+            mlx->game.map[mlx->p_y][mlx->p_x] = '0'; 
+        }
+    }
+    else if (keyhook == KEY_S)
+    {
+        if (mlx->game.map[mlx->p_y + 1][mlx->p_x] == '0' || mlx->game.map[mlx->p_y + 1][mlx->p_x] == 'C')
+        {
+            mlx->game.map[mlx->p_y + 1][mlx->p_x] = 'P'; 
+            mlx->game.map[mlx->p_y][mlx->p_x] = '0'; 
+        }
+    }
+    else if (keyhook == KEY_A)
+    {
+        if (mlx->game.map[mlx->p_y][mlx->p_x - 1] == '0' || mlx->game.map[mlx->p_y][mlx->p_x - 1] == 'C')
+        {
+            mlx->game.map[mlx->p_y][mlx->p_x - 1] = 'P'; 
+            mlx->game.map[mlx->p_y][mlx->p_x] = '0'; 
+        }
+    }
+    else if (keyhook == KEY_D)
+    {
+        if (mlx->game.map[mlx->p_y][mlx->p_x + 1] == '0' || mlx->game.map[mlx->p_y][mlx->p_x + 1] == 'C')
+        {
+            mlx->game.map[mlx->p_y][mlx->p_x + 1] = 'P'; 
+            mlx->game.map[mlx->p_y][mlx->p_x] = '0'; 
+        }
+    }
 
-	mlx_clear_window(mlx->mlx, mlx->win);
-	rendre_map(mlx);
-	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->tx.player, mlx->p_x * 80, mlx->p_y * 80);
-
-	return (0);
+    rendre_map(mlx);
+    return (0);
 }
 
 int    init_wind(t_mlx *mlx)
@@ -95,9 +117,9 @@ void in_mlx(t_mlx *mlx)
 		mlx->game.row * 80, "so_long");
 	if (!mlx->win)
 		return (ft_putstr("WIN initialization failed", 2));
-	find_player(mlx);
-	mlx_key_hook(mlx->win, key_hook, mlx);
 	init_wind(mlx);
+	find_player(mlx);
 	rendre_map(mlx);
+	mlx_key_hook(mlx->win, key_hook, mlx);
 	mlx_loop(mlx->mlx);
 }
