@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 00:07:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/04 19:14:33 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/04 21:56:41 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int    init_wind(t_mlx *mlx)
 	mlx->tx.floor = mlx_xpm_file_to_image(mlx->mlx, "texture/mandatory/floor.xpm", &mlx->game.column, &mlx->game.row);
 	mlx->tx.player = mlx_xpm_file_to_image(mlx->mlx, "texture/mandatory/player.xpm", &mlx->game.column, &mlx->game.row);
 	mlx->tx.coin = mlx_xpm_file_to_image(mlx->mlx, "texture/mandatory/coin.xpm", &mlx->game.column, &mlx->game.row);
-	mlx->tx.door = mlx_xpm_file_to_image(mlx->mlx, "texture/mandatory/door.xpm", &mlx->game.column, &mlx->game.row);
+	mlx->tx.door = mlx_xpm_file_to_image(mlx->mlx, "texture/mandatory/cave.xpm", &mlx->game.column, &mlx->game.row);
 
 	return 1;
 }
