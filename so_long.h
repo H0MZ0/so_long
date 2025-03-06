@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:40 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/04 18:01:50 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/06 17:26:02 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ typedef struct s_image
 	void	*player;
 	void	*door;
 	void	*wall;
-	void	*character;
+	void	*img;
+	void	*enemy;
 }	t_image;
 
 
@@ -88,5 +89,9 @@ void	ft_putstr(char *str, int fd);
 void	put_err(char *str);
 void	in_mlx(t_mlx *mlx);
 void	count_things(t_mlx *mlx);
+void	find_player(t_mlx *mlx);
+void	move_player(t_mlx *mlx, int new_x, int new_y);
+
+
 
 #endif
