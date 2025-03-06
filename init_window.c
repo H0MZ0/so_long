@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 00:07:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/06 17:54:45 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/06 19:29:22 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	key_hook(int keyhook, t_mlx *mlx)
 	return (0);
 }
 
-int	init_wind(t_mlx *mlx)
+void	init_wind(t_mlx *mlx)
 {
 	mlx->tx.wall = mlx_xpm_file_to_image(mlx->mlx,
 			"texture/mandatory/wall.xpm",
@@ -77,7 +77,6 @@ int	init_wind(t_mlx *mlx)
 	mlx->tx.door = mlx_xpm_file_to_image(mlx->mlx,
 			"texture/mandatory/cave.xpm",
 			&mlx->game.column, &mlx->game.row);
-	return (1);
 }
 
 void	in_mlx(t_mlx *mlx)
