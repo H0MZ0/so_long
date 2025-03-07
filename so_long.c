@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:21:31 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/06 22:33:40 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/07 03:10:25 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ void	map_filter(char *map)
 	copy_map(&mlx);
 	in_mlx(&mlx);
 }
-
+free_arr()
 
 int	main(int ac, char **av)
 {

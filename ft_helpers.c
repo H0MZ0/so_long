@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:53:28 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/02 23:23:42 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/07 03:11:44 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	free_arr(char **str)
 	int	i;
 
 	i = 0;
+	if (!str || !(*str))
+		return ;
 	while (str[i])
 	{
 		free (str[i]);
