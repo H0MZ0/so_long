@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:21:31 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/04 19:26:26 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/06 22:33:40 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	pars_square(t_mlx *mlx)
 	}
 }
 
-void	count_things(t_mlx *mlx)
+void	count_things(t_mlx *mlx, int check)
 {
 	mlx->game.P = 0;
 	mlx->game.E = 0;
@@ -55,7 +55,7 @@ void	count_things(t_mlx *mlx)
 		}
 		mlx->axis.y++;
 	}
-	if (mlx->game.C < 1 || mlx->game.P != 1 || mlx->game.E != 1)
+	if ((mlx->game.C < 1 || mlx->game.P != 1 || mlx->game.E != 1) && check == 1)
 		put_err("Error:\nCheck your map\n");
 }
 
@@ -129,7 +129,7 @@ void	map_filter(char *map)
 	check_fl_walls(&mlx);
 	check_rl_walls(&mlx);
 	check_others(&mlx);
-	count_things(&mlx);
+	count_things(&mlx, 1);
 	copy_map(&mlx);
 	in_mlx(&mlx);
 }

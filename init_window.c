@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 00:07:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/06 19:29:22 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/07 02:34:35 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int	key_hook(int keyhook, t_mlx *mlx)
 	find_player(mlx);
 	if (keyhook == KEY_ESC)
 		exit(0);
-	count_things(mlx);
 	if (keyhook == KEY_W || keyhook == KEY_UP)
 		move_player(mlx, mlx->p_x, mlx->p_y - 1);
 	else if (keyhook == KEY_S || keyhook == KEY_DOWN)
@@ -54,8 +53,6 @@ int	key_hook(int keyhook, t_mlx *mlx)
 		move_player(mlx, mlx->p_x - 1, mlx->p_y);
 	else if (keyhook == KEY_D || keyhook == KEY_RIGHT)
 		move_player(mlx, mlx->p_x + 1, mlx->p_y);
-	else if (mlx->game.C == 0)
-		exit(0);
 	rendre_map(mlx);
 	return (0);
 }
