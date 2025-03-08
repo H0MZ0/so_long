@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:53:28 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/07 03:11:44 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/08 01:54:04 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,14 @@ void	free_arr(char **str)
 		i++;
 	}
 	free (str);
+}
+
+int	is_valid_ber_file(char *filename)
+{
+	if (!filename || ft_strlen(filename) <= 4)
+		return (0);
+	return (ft_strcmp(".ber",
+			&filename[ft_strlen(filename) - 4]) == 0);
 }
 
 void	print_arr(char **str)

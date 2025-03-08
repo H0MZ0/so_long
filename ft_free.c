@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 17:15:31 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/06 17:29:12 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/08 01:37:28 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	free_map(char **map, int lines)
 
 void	free_images(t_mlx *mlx)
 {
-	int	i;
-	i = 0;
+	// int	i;
+	// i = 0;
 	// while (i < 10)
 	// {
 	// 	if (mlx->img.collection_frames[i])
@@ -42,8 +42,8 @@ void	free_images(t_mlx *mlx)
 		mlx_destroy_image(mlx->mlx, mlx->tx.door);
 	if (mlx->tx.player)
 		mlx_destroy_image(mlx->mlx, mlx->tx.player);
-	if (mlx->tx.enemy)
-		mlx_destroy_image(mlx->mlx, mlx->tx.enemy);
+	// if (mlx->tx.enemy)
+	// 	mlx_destroy_image(mlx->mlx, mlx->tx.enemy);
 }
 
 int	close_window(void *param)
