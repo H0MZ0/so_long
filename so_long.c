@@ -6,11 +6,19 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:21:31 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/08 03:49:04 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/08 17:48:27 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	fail_flood(t_mlx *mlx)
+{
+		ft_putstr("why you make me invalid\n", 2);
+		free_arr(mlx->game.map);
+		free_arr(mlx->game.copy);
+		exit(1);
+}
 
 void	map_filter(char *map)
 {
@@ -25,12 +33,7 @@ void	map_filter(char *map)
 	copy_map(&mlx);
 	find_player(&mlx);
 	if (!ft_flood_fill_check(&mlx))
-	{
-		ft_putstr("why you make me invalid\n", 2);
-		free_arr(mlx.game.map);
-		free_arr(mlx.game.copy);
-		exit(1);
-	}
+		fail_flood(&mlx);
 	in_mlx(&mlx);
 }
 
