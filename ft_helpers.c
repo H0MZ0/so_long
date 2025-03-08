@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:53:28 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/08 01:54:04 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/08 02:53:08 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ int	is_valid_ber_file(char *filename)
 {
 	if (!filename || ft_strlen(filename) <= 4)
 		return (0);
+	if (filename[0] == '.')
+		put_err("Error:\nHidder file\n");
 	return (ft_strcmp(".ber",
 			&filename[ft_strlen(filename) - 4]) == 0);
 }
