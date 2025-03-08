@@ -6,11 +6,39 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 00:07:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/08 01:37:28 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/08 02:05:58 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	free_images(t_mlx *mlx)
+{
+	if (mlx->tx.wall)
+		mlx_destroy_image(mlx->mlx, mlx->tx.wall);
+	if (mlx->tx.floor)
+		mlx_destroy_image(mlx->mlx, mlx->tx.floor);
+	if (mlx->tx.player)
+		mlx_destroy_image(mlx->mlx, mlx->tx.player);
+	if (mlx->tx.coin)
+		mlx_destroy_image(mlx->mlx, mlx->tx.coin);
+	if (mlx->tx.door)
+		mlx_destroy_image(mlx->mlx, mlx->tx.door);
+}
+
+int	close_window(void *param)
+{
+	t_mlx	*mlx;
+
+	mlx = (t_mlx *)param;
+	mlx_destroy_window(mlx->mlx, mlx->win);  // Destroy the window
+	free_images(mlx);  // Free the textures
+	free_arr(mlx->game.map);  // Free the map (and copy if needed)
+	free_arr(mlx->game.copy);  // Free the copied map
+	mlx_destroy_display(mlx->mlx);  // Destroy the display connection
+	free(mlx->mlx);  // Free the mlx instance
+	exit(0);  // Exit the program
+}
 
 void	rendre_map(t_mlx *mlx)
 {
@@ -43,8 +71,8 @@ void	rendre_map(t_mlx *mlx)
 int	key_hook(int keyhook, t_mlx *mlx)
 {
 	find_player(mlx);
-	if (keyhook == KEY_ESC)
-		exit(0);
+	if (keyhook == KEY_ESC || keyhook == ON_DESTROY)
+		close_window(mlx);
 	if (keyhook == KEY_W || keyhook == KEY_UP)
 		move_player(mlx, mlx->p_x, mlx->p_y - 1);
 	else if (keyhook == KEY_S || keyhook == KEY_DOWN)
