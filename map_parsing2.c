@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 01:42:15 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/08 01:48:26 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/08 03:45:31 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	copy_map(t_mlx *mlx)
 	mlx->game.copy = malloc(sizeof(char *) * (row + 1));
 	if (!mlx->game.copy)
 		return ;
+	mlx->game.copy[row] = NULL;
 	while (i < row)
 	{
 		mlx->game.copy[i] = malloc(sizeof(char) * (column + 1));
@@ -35,7 +36,6 @@ void	copy_map(t_mlx *mlx)
 		ft_strcpy(mlx->game.copy[i], mlx->game.map[i]);
 		i++;
 	}
-	mlx->game.copy[row] = NULL;
 }
 
 void	find_player(t_mlx *mlx)

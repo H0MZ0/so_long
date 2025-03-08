@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:40 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/08 01:49:02 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/08 03:49:13 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,8 @@ void	put_err(char *str);
 void	in_mlx(t_mlx *mlx);
 void	move_player(t_mlx *mlx, int new_x, int new_y);
 size_t	ft_strcpy(char *dst, const char *src);
+
+int		ft_flood_fill_check(t_mlx *mlx);
 
 // FREE
 int		close_window(void *param);
