@@ -1,6 +1,7 @@
 {
 	"files.associations": {
 		"so_long.h": "c",
-		"sstream": "c"
+		"sstream": "c",
+		"string.h": "c"
 	}
 }

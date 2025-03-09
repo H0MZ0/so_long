@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:40 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/08 04:51:53 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/09 01:14:49 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ typedef struct s_mlx
 	int		p_y;
 	void	*mlx;
 	void	*win;
+	int		moves;
 }	t_mlx;
 
 /*PARSING*/
@@ -85,6 +86,8 @@ void	count_things(t_mlx *mlx, int check);
 void	copy_map(t_mlx *mlx);
 void	find_player(t_mlx *mlx);
 
+void	ft_putnbr(int nbr);
+void	print_moves(t_mlx *mlx);
 int		is_valid_ber_file(char *filename);
 void	print_arr(char **str);
 void	free_arr(char **str);

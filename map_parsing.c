@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 15:01:07 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/08 01:47:49 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/09 01:17:39 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	read_map(t_mlx *mlx, char *map)
 {
+	char	*line;
 	int		fd;
 	int		i;
-	char	*line;
 
 	fd = open(map, O_RDONLY);
 	if (fd == -1)

@@ -6,11 +6,19 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 00:07:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/08 04:55:50 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/09 01:15:08 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	print_moves(t_mlx *mlx)
+{
+	mlx->moves += 1;
+	ft_putstr("moves: ", 1);
+	ft_putnbr(mlx->moves);
+	ft_putstr("\n", 1);
+}
 
 void	rendre_map(t_mlx *mlx)
 {
@@ -78,6 +86,7 @@ void	init_wind(t_mlx *mlx)
 
 void	in_mlx(t_mlx *mlx)
 {
+	mlx->moves = 0;
 	mlx->mlx = mlx_init();
 	if (!mlx->mlx)
 		return (ft_putstr("MLX initialization failed", 2));

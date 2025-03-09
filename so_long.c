@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:21:31 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/08 17:48:27 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/09 01:18:20 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 
 void	fail_flood(t_mlx *mlx)
 {
-		ft_putstr("why you make me invalid\n", 2);
-		free_arr(mlx->game.map);
-		free_arr(mlx->game.copy);
-		exit(1);
+	ft_putstr("why you make me invalid\n", 2);
+	free_arr(mlx->game.map);
+	free_arr(mlx->game.copy);
+	exit(1);
 }
 
 void	map_filter(char *map)
 {
 	t_mlx	mlx;
 
+	mlx.moves = 0;
 	read_map(&mlx, map);
 	pars_square(&mlx);
 	check_fl_walls(&mlx);
