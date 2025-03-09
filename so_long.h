@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:40 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/09 01:14:49 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/09 02:12:48 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ typedef struct s_image
 	void	*door;
 	void	*wall;
 	void	*img;
-	void	*enemy;
 }	t_image;
 
 typedef struct s_mlx
@@ -75,6 +74,7 @@ typedef struct s_mlx
 	void	*mlx;
 	void	*win;
 	int		moves;
+	int		coin_coll;
 }	t_mlx;
 
 /*PARSING*/

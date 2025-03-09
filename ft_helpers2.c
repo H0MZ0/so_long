@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 01:40:33 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/09 01:11:26 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/09 15:58:44 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,6 @@ void	ft_putchar(char c)
 
 void	ft_putnbr(int nbr)
 {
-	int	i;
-
-	i = 0;
 	if (nbr <= 9)
 		ft_putchar(nbr + 48);
 	if (nbr > 9)
