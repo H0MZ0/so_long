@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 01:40:33 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/09 15:58:44 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/10 23:48:14 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,12 @@ void	ft_putnbr(int nbr)
 		ft_putnbr(nbr / 10);
 		ft_putnbr(nbr % 10);
 	}
+}
+
+void	print_moves(t_mlx *mlx)
+{
+	mlx->moves += 1;
+	ft_putstr("moves: ", 1);
+	ft_putnbr(mlx->moves);
+	ft_putstr("\n", 1);
 }

@@ -6,18 +6,18 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 00:07:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/10 02:52:21 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/10 23:48:23 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	print_moves(t_mlx *mlx)
+void	exit_door(t_mlx *mlx)
 {
-	mlx->moves += 1;
-	ft_putstr("moves: ", 1);
-	ft_putnbr(mlx->moves);
-	ft_putstr("\n", 1);
+	if (mlx->game.c == 0)
+		mlx->tx.img = mlx->tx.ldoor;
+	else
+		mlx->tx.img = mlx->tx.door;
 }
 
 void	rendre_map(t_mlx *mlx)
@@ -37,7 +37,7 @@ void	rendre_map(t_mlx *mlx)
 			else if (mlx->game.map[ax.y][ax.x] == 'P')
 				mlx->tx.img = mlx->tx.player;
 			else if (mlx->game.map[ax.y][ax.x] == 'E')
-				mlx->tx.img = mlx->tx.door;
+				exit_door(mlx);
 			else if (mlx->game.map[ax.y][ax.x] == 'C')
 				mlx->tx.img = mlx->tx.coin;
 			mlx_put_image_to_window(mlx->mlx, mlx->win,
@@ -52,8 +52,6 @@ int	key_hook(int keyhook, t_mlx *mlx)
 {
 	find_player(mlx);
 	count_things(mlx, 0);
-	if (mlx->game.c == 0)
-		mlx->tx.door = mlx->tx.ldoor;
 	if (keyhook == KEY_ESC || keyhook == ON_DESTROY)
 		close_window(mlx);
 	if (keyhook == KEY_W || keyhook == KEY_UP)

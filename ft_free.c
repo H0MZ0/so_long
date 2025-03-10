@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 17:15:31 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/10 02:52:34 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/10 23:42:26 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	free_images(t_mlx *mlx)
 		mlx_destroy_image(mlx->mlx, mlx->tx.coin);
 	if (mlx->tx.door)
 		mlx_destroy_image(mlx->mlx, mlx->tx.door);
+	if (mlx->tx.ldoor)
+		mlx_destroy_image(mlx->mlx, mlx->tx.ldoor);
 }
 
 int	close_window(void *param)
