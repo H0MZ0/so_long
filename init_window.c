@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 00:07:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/09 02:28:15 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/10 02:52:21 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ void	rendre_map(t_mlx *mlx)
 int	key_hook(int keyhook, t_mlx *mlx)
 {
 	find_player(mlx);
+	count_things(mlx, 0);
+	if (mlx->game.c == 0)
+		mlx->tx.door = mlx->tx.ldoor;
 	if (keyhook == KEY_ESC || keyhook == ON_DESTROY)
 		close_window(mlx);
 	if (keyhook == KEY_W || keyhook == KEY_UP)
@@ -68,7 +71,7 @@ int	key_hook(int keyhook, t_mlx *mlx)
 void	init_wind(t_mlx *mlx)
 {
 	mlx->tx.wall = mlx_xpm_file_to_image(mlx->mlx,
-			"texture/mandatory/wall.xpm",
+			"texture/mandatory/wall1.xpm",
 			&mlx->game.column, &mlx->game.row);
 	mlx->tx.floor = mlx_xpm_file_to_image(mlx->mlx,
 			"texture/mandatory/floor.xpm",
@@ -80,7 +83,10 @@ void	init_wind(t_mlx *mlx)
 			"texture/mandatory/coin.xpm",
 			&mlx->game.column, &mlx->game.row);
 	mlx->tx.door = mlx_xpm_file_to_image(mlx->mlx,
-			"texture/mandatory/cave.xpm",
+			"texture/mandatory/door.xpm",
+			&mlx->game.column, &mlx->game.row);
+	mlx->tx.ldoor = mlx_xpm_file_to_image(mlx->mlx,
+			"texture/mandatory/ldoor.xpm",
 			&mlx->game.column, &mlx->game.row);
 	if (!mlx->tx.coin || !mlx->tx.door
 		|| !mlx->tx.floor || !mlx->tx.player

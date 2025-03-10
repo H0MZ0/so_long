@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:40 by hakader           #+#    #+#             */
-/*   Updated: 2025/03/09 02:12:48 by hakader          ###   ########.fr       */
+/*   Updated: 2025/03/10 02:52:02 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct s_image
 	void	*floor;
 	void	*player;
 	void	*door;
+	void	*ldoor;
 	void	*wall;
 	void	*img;
 }	t_image;
